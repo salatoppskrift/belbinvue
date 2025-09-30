@@ -2,17 +2,17 @@
         // legg til ref
         import { ref } from 'vue';
 
-        function getTotals(spørsm) {
+        function getTotals(spørsmArr) {
             let tPs = 0;
-            spørsm.forEach(element => {
-                tPs += element.poeng;
+            spørsmArr.forEach(spørsm => {
+                tPs += spørsm.poeng;
             });
-                //tPs.push(thing.poeng);
-            //for(thing in spørsm){
-                //tPs += thing.poeng;
-            //}
+            
             return tPs;
-            //return tPs.map(point => point).reduce((acc, curr) => acc + curr, 0);
+        }
+
+        function endrePoeng(){
+            console.count();
         }
         const seksjoner = ref([
             {
