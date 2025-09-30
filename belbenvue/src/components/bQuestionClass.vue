@@ -3,11 +3,13 @@
         import { ref } from 'vue';
 
         function getTotals(spørsm) {
-            const tPs = [];
+            let tPs = 0;
             for(thing in spørsm){
-                tPs.push(thing.poeng);
+                //tPs.push(thing.poeng);
+                tPs += thing.poeng;
             }
-            return tPs.map(point => point).reduce((acc, curr) => acc + curr, 0);
+            return tPs;
+            //return tPs.map(point => point).reduce((acc, curr) => acc + curr, 0);
         }
         const seksjoner = ref([
             {
