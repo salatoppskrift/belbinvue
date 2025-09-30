@@ -111,6 +111,11 @@
                         letter: "g",
                         q: "I am apt to get too caught up in ideas that occur to me and so lose track of what is happening",
                         poeng: 0
+                    },
+                    {
+                        letter: "h",
+                        q: "My colleagues tend to see me as worrying unnecessarily over detail and the possibility that things may go wrong",
+                        poeng: 0
                     }
                 ]
             },
