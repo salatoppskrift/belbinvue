@@ -2,13 +2,25 @@
         // legg til ref
         import { ref } from 'vue';
 
-        function getTotals(spørsmArr) {
+        function getTotals(spørsmArr, intOrArray) {
+            const tPs = [];
+            spørsmArr.forEach(indviduellQ => {
+                tPs.push(indviduellQ.poeng);
+            });
+
+            if (intOrArray === undefined) return tPs.reduce(function(x, y) {
+                return x + y;
+            }, 0);
+            else return tPs;
+
+            /* merk! husk å ta vekk parameter intOrArray!
             let tPs = 0;
             spørsmArr.forEach(spørsm => {
                 tPs += spørsm.poeng;
             });
             
             return tPs;
+            */
         }
 
         function endrePoeng(){
