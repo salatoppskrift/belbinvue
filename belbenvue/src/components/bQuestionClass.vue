@@ -347,7 +347,7 @@
             <div>
                 <div>Total</div>
                 <div>{{ getTotals(tabell.Spørsmål) }}</div>
-                <div class="tommy">uu</div>
+                <div class="tommy"></div>
             </div>
         </div>
     </div>
