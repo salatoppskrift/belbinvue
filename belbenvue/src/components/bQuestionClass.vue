@@ -341,7 +341,7 @@
             </div>
             <div>
                 <div>Total</div>
-                <div>{{ tabell.totalPoints }}</div>
+                <div>{{ tabell.TotalPoeng }}</div>
                 <div class="tommy"></div>
             </div>
         </div>
