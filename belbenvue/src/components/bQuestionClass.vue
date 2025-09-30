@@ -4,10 +4,13 @@
 
         function getTotals(spørsm) {
             let tPs = 0;
-            for(thing in spørsm){
+            spørsm.forEach(element => {
+                tPs += element.poeng;
+            });
                 //tPs.push(thing.poeng);
-                tPs += thing.poeng;
-            }
+            //for(thing in spørsm){
+                //tPs += thing.poeng;
+            //}
             return tPs;
             //return tPs.map(point => point).reduce((acc, curr) => acc + curr, 0);
         }
@@ -343,8 +346,8 @@
             </div>
             <div>
                 <div>Total</div>
-                <div>{{ tabell.TotalPoeng }}</div>
-                <div class="tommy"></div>
+                <div>{{ getTotals(tabell.Spørsmål) }}</div>
+                <div class="tommy">uu</div>
             </div>
         </div>
     </div>
