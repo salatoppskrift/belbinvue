@@ -29,6 +29,7 @@
         const seksjoner = ref([
             {
                 TotalPoeng: 10,
+                SeksjonTall: "I",
                 Tittel: "What I believe I can contribute to a team:",
                 Spørsmål: [
                     {
@@ -75,7 +76,8 @@
             },
             {
                 TotalPoeng: 10,
-                Tittel: "I If I have a possible shortcoming in teamwork, it could be that:",
+                SeksjonTall: "II",
+                Tittel: "If I have a possible shortcoming in teamwork, it could be that:",
                 Spørsmål: [
                     {
                         letter: "a",
@@ -121,6 +123,7 @@
             },
             {
                 TotalPoeng: 10,
+                SeksjonTall: "III",
                 Tittel: "When involved in a project with other people:",
                 Spørsmål: [
                     {
@@ -167,6 +170,7 @@
             },
             {
                 TotalPoeng: 10,
+                SeksjonTall: "IV",
                 Tittel: "My characteristic approach to group work is that:",
                 Spørsmål: [
                     {
@@ -213,6 +217,7 @@
             },
             {
                 TotalPoeng: 10,
+                SeksjonTall: "V",
                 Tittel: "I gain satisfaction in a job because:",
                 Spørsmål: [
                     {
@@ -259,6 +264,7 @@
             },
             {
                 TotalPoeng: 10,
+                SeksjonTall: "VI",
                 Tittel: "If I’m suddenly given a difficult task with limited time and unfamiliar people:",
                 Spørsmål: [
                     {
@@ -305,6 +311,7 @@
             },
             {
                 TotalPoeng: 10,
+                SeksjonTall: "VII",
                 Tittel: "With reference to the problems to which I am subject in working in groups:",
                 Spørsmål: [
                     {
@@ -354,7 +361,7 @@
 
 <template>
     <div class="tabell_1" v-for="tabell in seksjoner">
-        <div>{{tabell.Tittel}}</div>
+        <div><small>{{ tabell.SeksjonTall.toLowerCase() }} - </small> {{tabell.Tittel}}</div>
         <div class="tabell_1_spørsmålOppsett">
             <div v-for="spørsmål in tabell.Spørsmål">
                 <div>{{ spørsmål.letter }}</div>
@@ -374,6 +381,11 @@
     * { margin: 0; padding: 0; }
     body { padding: 20px; }
     .tabell_1 { border: 2px solid darkorchid; margin: 0 0 20px 0; border-width: 2px 2px 0 2px;}
+    .tabell_1 > div:first-child { 
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
     .tabell_1_spørsmålOppsett { border: darkcyan solid; border-width: 1px 0; }
     .tabell_1_spørsmålOppsett > div {
         display: grid;
