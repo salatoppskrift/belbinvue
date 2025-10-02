@@ -3,7 +3,6 @@
 
 <template>
   <router-view></router-view>
-  <router-link></router-link>
 </template>
 
 <style scoped>

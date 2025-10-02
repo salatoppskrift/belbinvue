@@ -1,51 +1,7 @@
-<script setup>
-        // legg til ref
-        import { ref } from 'vue';
-        import { Seksjoner } from './sporsmol';
+import { ref } from "vue";
 
-<<<<<<< HEAD
-        const points = ref([0,0,0,0,0,0,0]);
-
-        const isFinished = ref(false);
-        const seksjoner = Seksjoner;
-
-=======
->>>>>>> 2e385ba52c54951d9041cd5a5387c8c13f32d3c2
-        function getTotals(spørsmArr, intOrArray) {
-            const tPs = [];
-            spørsmArr.forEach(indviduellQ => {
-                tPs.push(indviduellQ.poeng);
-            });
-
-            if (intOrArray === undefined) return tPs.reduce(function(x, y) {
-                return x + y;
-            }, 0);
-            else return tPs;
-
-            /* merk! husk å ta vekk parameter intOrArray!
-            let tPs = 0;
-            spørsmArr.forEach(spørsm => {
-                tPs += spørsm.poeng;
-            });
-            
-            return tPs;
-            */
-<<<<<<< HEAD
-=======
-        }
-
-        function endrePoeng(){
-            console.count();
->>>>>>> 2e385ba52c54951d9041cd5a5387c8c13f32d3c2
-        }
-
-        function endrePoeng(obj, spørsmål, tegn){
-            if (tegn === "pluss")
+export const Seksjoner = ref([
             {
-<<<<<<< HEAD
-                spørsmål.poeng++;
-                obj.TotalPoeng++;
-=======
                 TotalPoeng: 10,
                 SeksjonTall: "I",
                 Tittel: "What I believe I can contribute to a team:",
@@ -83,7 +39,7 @@
                     {
                         letter: "g",
                         q: "I can usually sense what is realistic and likely to work",
-                        poeng: 0
+                        poeng: 10
                     },
                     {
                         letter: "h",
@@ -100,7 +56,7 @@
                     {
                         letter: "a",
                         q: "I am not at ease unless meetings are well structured and controlled and generally well conducted",
-                        poeng: 0
+                        poeng: 10
                     },
                     {
                         letter: "b",
@@ -147,12 +103,12 @@
                     {
                         letter: "a",
                         q: "I have an aptitude for influencing people without pressuring them",
-                        poeng: 0
+                        poeng: 4
                     },
                     {
                         letter: "b",
                         q: "My general vigilance prevents careless mistakes and omissions being made",
-                        poeng: 0
+                        poeng: 2
                     },
                     {
                         letter: "c",
@@ -182,7 +138,7 @@
                     {
                         letter: "h",
                         q: "I can be called upon to see that all essential work is organised",
-                        poeng: 0
+                        poeng: 4
                     }
                 ]
             },
@@ -194,12 +150,12 @@
                     {
                         letter: "a",
                         q: "I have a quiet interest in getting to know colleagues better",
-                        poeng: 0
+                        poeng: 9
                     },
                     {
                         letter: "b",
                         q: "I am not reluctant to challenge the views of others or to hold a minority view myself",
-                        poeng: 0
+                        poeng: 1
                     },
                     {
                         letter: "c",
@@ -246,7 +202,7 @@
                     {
                         letter: "b",
                         q: "I am interested in finding practical solutions to problems",
-                        poeng: 0
+                        poeng: 9
                     },
                     {
                         letter: "c",
@@ -261,7 +217,7 @@
                     {
                         letter: "e",
                         q: "I can meet people who may have something new to offer",
-                        poeng: 0
+                        poeng: 1
                     },
                     {
                         letter: "f",
@@ -298,7 +254,7 @@
                     {
                         letter: "c",
                         q: "I would find some way of reducing the size of the task by establishing what different individuals might best contribute",
-                        poeng: 0
+                        poeng: 3
                     },
                     {
                         letter: "d",
@@ -313,7 +269,7 @@
                     {
                         letter: "f",
                         q: "I would retain a steadiness of purpose in spite of the pressures",
-                        poeng: 0
+                        poeng: 7
                     },
                     {
                         letter: "g",
@@ -328,7 +284,7 @@
                 ]
             },
             {
-                TotalPoeng: 10,
+                TotalPoeng: 0,
                 SeksjonTall: "VII",
                 Tittel: "With reference to the problems to which I am subject in working in groups:",
                 Spørsmål: [
@@ -373,162 +329,5 @@
                         poeng: 0
                     }
                 ]
->>>>>>> 2e385ba52c54951d9041cd5a5387c8c13f32d3c2
             }
-            else 
-            {
-                spørsmål.poeng--;
-                obj.TotalPoeng--;
-            }
-            checkIfFinished();
-        }
-
-        function checkIfFinished() 
-        {
-            let count = 0;
-            seksjoner.value.forEach(element => {
-                count += element.TotalPoeng;
-            });
-            if (count == 70)
-            {
-                isFinished.value = true;
-            }    
-        }
-
-
-        const getResult = () =>  {
-            let chech = confirm();
-            if(!chech)
-            {
-                return;
-            }
-            
-            const letterPoints = [];
-
-            for(let i = 0; i < seksjoner.value.length; i++)
-            {
-                const letterPoint = [];
-                for(let j = 0; j < 7; j++)
-                {
-                    letterPoint.push(seksjoner.value[i].Spørsmål[j].poeng);
-                }
-                letterPoints.push(letterPoint);
-            }
-
-            const obj = [
-                {name: "cw", letters: ["g","a","h","d","b","f","e"], points: [], total: 0},
-                {name: "cp", letters: ["d","b","a","h","f","c","g"], points: [], total: 0},
-                {name: "sh", letters: "fecbdga", points: [], total: 0},
-                {name: "pl", letters: "cgdehaf", points: [], total: 0},
-                {name: "ri", letters: "acfgehd", points: [], total: 0},
-            ]
-            
-            for(let i = 0; i < obj.length; i++)
-            {
-                for(let j = 0; j < obj[i].letters.length; j++)
-                {
-                    let objSelect = seksjoner.value[j].Spørsmål.find(e => e.letter == obj[i].letters[j]);
-                    obj[i].points.push(objSelect.poeng);
-                }
-                for(let j = 0; j < obj[i].points.length; j++)
-                {
-                    obj[i].total += obj[i].points[j];
-                }
-
-            }
-
-            console.log(obj);
-            let vinner = obj.sort((a, b) => b.total - a.total);
-
-            let thewinners = vinner.filter(n => n.total == vinner[0].total)
-
-            console.log(thewinners);
-            console.log(vinner);
-
-            console.log(vinner[0].name);
-
-        }
-
-
-
-</script>
-
-<template>
-    <div class="tabell_1" v-for="tabell in seksjoner">
-        <div><small>{{ tabell.SeksjonTall.toLowerCase() }} - </small> {{tabell.Tittel}}</div>
-        <div class="tabell_1_spørsmålOppsett">
-            <div v-for="spørsmål in tabell.Spørsmål">
-                <div>{{ spørsmål.letter }}</div>
-                <div class="høver">
-                    <button @click="endrePoeng(tabell, spørsmål, 'pluss')" :disabled="tabell.TotalPoeng >= 10 || spørsmål.poeng >= 10">+</button>
-                    {{ spørsmål.poeng }}
-                    <button @click="endrePoeng(tabell, spørsmål, )" :disabled="tabell.TotalPoeng <= 0 || spørsmål.poeng <= 0">-</button>
-                </div>
-                <div>{{ spørsmål.q }}</div>
-            </div>
-            <div>
-                <div>Total</div>
-                <div>{{ getTotals(tabell.Spørsmål) }}</div>
-                <div class="tommy"></div>
-            </div>
-        </div>
-    </div>
-    <div v-if="isFinished">
-        <button @click="getResult">Lever resultat</button>
-    </div>
-</template>
-
-<style scoped>
-    * { margin: 0; padding: 0; }
-    body { padding: 20px; }
-    .tabell_1 { border: 2px solid darkorchid; margin: 0 0 20px 0; border-width: 2px 2px 0 2px;}
-    .tabell_1 > div:first-child { 
-        font-family: 'Times New Roman', Times, serif;
-        font-weight: bold;
-        font-size: 1.2rem;
-    }
-    .tabell_1_spørsmålOppsett { border: darkcyan solid; border-width: 1px 0; }
-    .tabell_1_spørsmålOppsett > div {
-        display: grid;
-        grid-template-columns: 70px 100px 1fr;
-        gap: 2px;
-        background-color: darkcyan;
-        padding: 1px 0;
-    }
-    .tabell_1_spørsmålOppsett > div > div, .tabell_1 > div:first-child {
-        background-color: rgb(0, 0, 0);
-        padding: 10px 20px;
-    }
-    .tabell_1_spørsmålOppsett > div > div:last-child {
-        text-align: left;
-    }
-    .tabell_1_spørsmålOppsett > div:last-child > div:last-child {
-        color: rgb(49, 191, 27);
-    }
-
-    .høver {
-        padding: 0;
-    }
-    /* .høver:hover { background-color: rgb(196, 248, 255); cursor: pointer; } */
-    /*.tabell_1{
-        display: grid;
-        grid-template-columns: repeat(2, 70px) 1fr;
-        gap: 2px;
-        margin-bottom: 15px;
-        background-color: darkcyan;
-        border: 2px solid darkcyan;
-    }
-    .tabell_1 > div {
-        background-color: white;
-        padding: 20px 6px;
-        font-size: 1.2rem;
-    }
-    .tabell_1 > div:first-child {
-        grid-column: 1 / 4;
-        padding: 6px 20px;
-    }
-    .høver { color: #85cfe7; text-align: center; }
-    .høver:hover { background-color: seashell; cursor: pointer; }
-    .tommy { color: #41adb1; }
-    */
-</style>
+        ]);
